@@ -1,10 +1,21 @@
+.main_page{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mainList p{
+  margin: 0 auto;
+}
+
 .mainList table{
   border: 1px solid gray;
 }
 .mainList table th{
+  width: 100px;
   border: 1px solid gray;
 }
 
 .mainList table td{
   border: 1px solid gray;
 }
+
