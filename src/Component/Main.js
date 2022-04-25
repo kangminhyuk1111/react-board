@@ -7,7 +7,6 @@ function Main(props) {
     const [postPerPage, setPostPerPage] = useState(5);
     const [currentPage, setcurrentPage] = useState(1);
     const [slicePost, setSlicePost] = useState([]);
-    const [boardList,setBoardList] = useState([])
 
     const currentPost = (posts) => {
         const indexOfLast = postPerPage * currentPage;
@@ -16,25 +15,16 @@ function Main(props) {
         return slicePost;
     }
 
-    const resData = async() =>{
-        const res = await axios.get('/api/boardData')
-        console.log(res.data);
-        setBoardList(res.data);
-    }
-
-    useEffect(() => {
-        resData()
-    }, [])
-
     return (
         <div className='main_page'>
-            <MainList boardList={boardList}
-                currentPost={currentPost(boardList)}
+            <MainList boardList={props.boardList}
+                currentPost={currentPost(props.boardList)}
                 slicePost={slicePost}
                 postPerPage={postPerPage}></MainList>
-            <Pagination boardList={boardList}
+            <Pagination boardList={props.boardList}
                 setcurrentPage={setcurrentPage}
                 currentPost={currentPost}></Pagination>
+            <a href='/postWrite'>글작성</a>
         </div>
     )
 }

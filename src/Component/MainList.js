@@ -4,7 +4,7 @@ function MainList(props) {
   const postList = props.currentPost.map((data, index) => (
     <tr key={index}>
       <td>{data.number}</td>
-      <td>{data.title}</td>
+      <td><a href='/postView'>{data.title}</a></td>
       <td>{data.content}</td>
       <td>{data.id}</td>
       <td>{data.data}</td>
@@ -16,13 +16,19 @@ function MainList(props) {
     <div className='mainList'>
       <p>총 게시글 : {props.boardList.length}</p>
       <table>
-        <th>게시물 번호</th>
-        <th>제목</th>
-        <th>내용</th>
-        <th>작성자</th>
-        <th>게시 날짜</th>
-        <th>조회수</th>
-        {postList}
+        <thead>
+          <tr>
+            <th>게시물 번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>게시 날짜</th>
+            <th>조회수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {postList}
+        </tbody>
       </table>
     </div>
   )
