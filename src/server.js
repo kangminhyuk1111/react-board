@@ -16,12 +16,23 @@ app.get('/api/BoardData', (req,res) => {
     })
 })
 
-app.post('/postWrite', (req,res) => {
+app.post('/postWrite', (req,res,next) => {
     console.log(req.body);
     const title = req.body.title;
     const content = req.body.content;
     const id = req.body.id;
-    db.query(`insert into board (title,content,id,data,hit) values ('${title}','${content}','${id}',now(),0);`)
+    const sql = `insert into board (title,content,id,data,hit) values ('${title}','${content}','${id}',now(),0);`;
+    db.query(sql,async(err,result)=>{
+        if(err) throw err;
+        console.log("1 record inserted");
+    })
+    next();
+})
+
+app.post('/search', (req,res,next) => {
+    console.log(req.body);
+    next();
+    // const sql = `select * from board where title like ${searchText}`
 })
 
 app.listen(PORT, () => {

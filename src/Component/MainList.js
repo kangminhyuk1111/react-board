@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import View from './View'
 
 function MainList(props) {
+  const [postNum, setPostNum] = useState(0);
+
+  const writeNum = (number) => {
+    console.log(number)
+    setPostNum(number)
+  }
+
   const postList = props.currentPost.map((data, index) => (
     <tr key={index}>
       <td>{data.number}</td>
-      <td><a href='/postView'>{data.title}</a></td>
+      <td><a href={`/postView/${postNum}`} onClick={()=>{writeNum(data.number)}}>{data.title}</a></td>
       <td>{data.content}</td>
       <td>{data.id}</td>
       <td>{data.data}</td>
@@ -12,6 +20,7 @@ function MainList(props) {
     </tr>
   )
   )
+  console.log(postList)
   return (
     <div className='mainList'>
       <p>총 게시글 : {props.boardList.length}</p>
