@@ -14,21 +14,16 @@ function Write(props) {
       [e.target.name]:e.target.value
     })
   }
-  const defaultEvent = (e) =>{
-    e.preventDefault();
-  }
 
   return (
     <div className='write'>
-      <form method='post' action='/postWrite' defaultEvent={defaultEvent}>
+      <form method='post' action='/postWrite'>
         <input type='text' placeholder='제목 입력' name='title' onChange={inputChange}/>
         <textarea type='text' placeholder='글 입력' name='content' onChange={inputChange}/>
         <input type='text' placeholder='id 입력' name='id' onChange={inputChange}/>
-        <Link to='/'>
-        <input type='submit' value='저장'/>
-        </Link>
+        <a href='/'><input type='submit' value='저장'/></a>
       </form>
-      <a href='/'>게시글</a>
+      <Link to='/'>목록</Link>
     </div>
     )
 }

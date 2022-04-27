@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function View(props) {
   const params = window.location.pathname.split('/');
@@ -24,7 +25,7 @@ function View(props) {
   return (
     <div className='view'>
       {mapViewPost}
-      <a href='/'>목록</a>
+      <Link to='/'>목록</Link>
     </div>
   )
 }

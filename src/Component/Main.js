@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import MainList from './MainList';
 import Pagination from './Pagination';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Main(props) {
-    const [postPerPage, setPostPerPage] = useState(5);
+    const [postPerPage, setPostPerPage] = useState(10);
     const [currentPage, setcurrentPage] = useState(1);
     const [slicePost, setSlicePost] = useState([]);
-    const [searchText, setSearchText] = useState({ search: '' })
+    const [searchText, setSearchText] = useState('')
+    const [searchData , setSearchData] = useState([]);
 
     const currentPost = (posts) => {
         const indexOfLast = postPerPage * currentPage;
@@ -18,11 +20,18 @@ function Main(props) {
 
     const inputChange = (e) => {
         console.log(e.target.value)
-        setSearchText({
-            ...searchText,
-            [e.target.name]: e.target.value
-        })
+        setSearchText(e.target.value);
     }
+
+    const postSearchData = async() =>{
+        console.log("/api/search")
+        console.log(searchText)
+        const req = await axios.post("/api/search/"+searchText);
+        console.log(req.data.searchData);
+        props.postSearchData(req.data.searchData);
+
+    }
+
     return (
         <div className='main_page'>
             <MainList boardList={props.boardList}
@@ -32,13 +41,9 @@ function Main(props) {
             <Pagination boardList={props.boardList}
                 setcurrentPage={setcurrentPage}
                 currentPost={currentPost}></Pagination>
-            <form method='post' action='/search'>
-                <input type='text' placeholder='검색어를 입력해주세요' name='search' onChange={inputChange} />
-                <Link to='/search'>
-                <button type='submit'>검색</button>
-                </Link>
-            </form>
-            <a href='/postWrite'>글작성</a>
+                <input type='text' placeholder='검색어를 입력해주세요' name='searchText' onChange={inputChange} />
+                <button type='submit' onClick={postSearchData}><Link to='/search'>검색</Link></button>
+            <Link to='/postWrite'>글작성</Link>
         </div>
     )
 }

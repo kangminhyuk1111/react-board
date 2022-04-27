@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import View from './View'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function MainList(props) {
   const [postNum, setPostNum] = useState(0);
@@ -8,7 +8,6 @@ function MainList(props) {
     console.log(number)
     setPostNum(number)
   }
-
   const postList = props.currentPost.map((data, index) => (
     <tr key={index}>
       <td>{data.number}</td>
@@ -20,7 +19,19 @@ function MainList(props) {
     </tr>
   )
   )
-  console.log(postList)
+
+  const spliceContent = () =>{
+    for(let i=0;i<props.boardList.length;i++){
+      if(props.boardList[i].content.length > 5){
+        props.boardList[i].content = props.boardList[i].content.slice(0,4)+'...';
+      }
+    }
+  }
+
+  useEffect(()=>{
+   spliceContent() 
+  },[])
+
   return (
     <div className='mainList'>
       <p>총 게시글 : {props.boardList.length}</p>

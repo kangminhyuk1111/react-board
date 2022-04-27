@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function Pagination(props) {
-    const [postPerPage, setPostPerPage] = useState(5);
+    const [postPerPage, setPostPerPage] = useState(10);
     const [currentPage, setcurrentPage] = useState(1);
     const pages = [];
     const pageNums = Math.ceil(props.boardList.length / postPerPage);

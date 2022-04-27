@@ -16,12 +16,18 @@ import axios from 'axios';
 //yarn add mysql
 function App(props) {
   const [boardList, setBoardList] = useState([]);
+  const [searchData , setSearchData] = useState([]);
   const [writeNumber , setWriteNumber] = useState(0);
 
   const resData = async () => {
     const res = await axios.get('/api/BoardData')
     console.log(res.data);
     setBoardList(res.data);
+  }
+
+  const postSearchData = (data) =>{
+    console.log(data);
+    setSearchData(data);
   }
 
   // const writeNum = (number) =>{
@@ -31,6 +37,7 @@ function App(props) {
 
   useEffect(() => {
     resData()
+    console.log("!");
   }, [])
 
   return (
@@ -39,9 +46,10 @@ function App(props) {
         <Routes>
           <Route exact path='/postWrite' element={<Write boardList={boardList}/>}></Route>
           <Route exact path='/postView/:postNum' element={<View boardList={boardList}/>}></Route>
-          <Route exact path='/' element={<Main boardList={boardList}/>}></Route>
+          <Route exact path='/' element={<Main boardList={boardList}
+          postSearchData={postSearchData}/>}></Route>
           <Route exact path='/login' element={<Login/>}></Route>
-          <Route exact path='/search' element={<Search/>}></Route>
+          <Route exact path='/search' element={<Search searchData={searchData}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
