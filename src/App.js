@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import View from './Component/View';
 import Write from './Component/Write';
 import Main from './Component/Main';
-import Login from './Component/Login';
+import Signup from './Component/Signup';
 import Search from './Component/Search';
+import loginCom from './Component/Login';
 import './App.css';
 import axios from 'axios';
+import Login from './Component/Login';
 
 
 //yarn add express
@@ -48,8 +50,9 @@ function App(props) {
           <Route exact path='/postView/:postNum' element={<View boardList={boardList}/>}></Route>
           <Route exact path='/' element={<Main boardList={boardList}
           postSearchData={postSearchData}/>}></Route>
-          <Route exact path='/login' element={<Login/>}></Route>
+          <Route exact path='/Signup' element={<Signup/>}></Route>
           <Route exact path='/search' element={<Search searchData={searchData}/>}></Route>
+          <Route exact path='/login' element={<Login/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

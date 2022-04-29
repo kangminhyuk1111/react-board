@@ -50,6 +50,39 @@ app.post("/api/search/:searchText", (req, res) => {
     })
 })
 
+app.post('/api/member/:id&/:name&/:password&/:passwordCheck', (req, res, next) => {
+    console.log("member");
+    console.log(req.params.id);
+    console.log(req.params.name);
+    console.log(req.params.password);
+    console.log(req.params.passwordCheck);
+    const id = req.params.id;
+    const name = req.params.name;
+    const password = req.params.password;
+    const passwordCheck = req.params.passwordCheck;
+    const sql = `insert into board_member values('${id}','${password}','${passwordCheck}','${name}');`
+    db.query(sql, (err,data)=>{
+        if(!err){
+            res.send()
+        }else{
+            console.log(err)
+        }
+    })
+})
+
+app.post('/api/login/:id&/:password',(req,res,next) => {
+    const id = req.params.id;
+    const password = req.params.password;
+    const sql = `select id,password from board_member where id='${id}' and password='${password}'`;
+    db.query(sql, (err,data)=>{
+        if(data.length == 0){
+            console.log("!!")
+        }else{
+            res.send({data:data})
+        }
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Server run : http://localhost:${PORT}/`)
 })
