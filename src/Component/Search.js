@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap';
 
 export default function Search(props) {
   console.log(props)
@@ -7,7 +8,6 @@ export default function Search(props) {
     <tr key={index}>
       <td>{data.number}</td>
       <td><a>{data.title}</a></td>
-      <td>{data.content}</td>
       <td>{data.id}</td>
       <td>{data.data}</td>
       <td>{data.hit}</td>
@@ -17,12 +17,11 @@ export default function Search(props) {
   
   return (
     <div>
-      <table>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>게시물 번호</th>
             <th>제목</th>
-            <th>내용</th>
             <th>작성자</th>
             <th>게시 날짜</th>
             <th>조회수</th>
@@ -31,7 +30,7 @@ export default function Search(props) {
         <tbody>
           {postList}
         </tbody>
-      </table>
+      </Table>
       <Link to='/'>목록</Link>
     </div>
   )

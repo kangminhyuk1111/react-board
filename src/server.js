@@ -60,7 +60,7 @@ app.post('/api/member/:id&/:name&/:password&/:passwordCheck', (req, res, next) =
     const name = req.params.name;
     const password = req.params.password;
     const passwordCheck = req.params.passwordCheck;
-    const sql = `insert into board_member values('${id}','${password}','${passwordCheck}','${name}');`
+    const sql = `insert into board_member values('${id}','${name}','${passwordCheck}','${password}');`
     db.query(sql, (err,data)=>{
         if(!err){
             res.send()
@@ -75,11 +75,7 @@ app.post('/api/login/:id&/:password',(req,res,next) => {
     const password = req.params.password;
     const sql = `select id,password from board_member where id='${id}' and password='${password}'`;
     db.query(sql, (err,data)=>{
-        if(data.length == 0){
-            console.log("!!")
-        }else{
-            res.send({data:data})
-        }
+        res.send(data);
     })
 })
 

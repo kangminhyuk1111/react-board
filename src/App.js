@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import View from './Component/View';
 import Write from './Component/Write';
 import Main from './Component/Main';
 import Signup from './Component/Signup';
 import Search from './Component/Search';
-import loginCom from './Component/Login';
-import './App.css';
-import axios from 'axios';
 import Login from './Component/Login';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 //yarn add express
@@ -39,7 +40,6 @@ function App(props) {
 
   useEffect(() => {
     resData()
-    console.log("!");
   }, [])
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ButtonGroup , Button } from 'react-bootstrap';
 
 function Pagination(props) {
     const [postPerPage, setPostPerPage] = useState(10);
@@ -14,15 +15,18 @@ function Pagination(props) {
         props.currentPost(props.boardList);
     }
 
-    const postBtn = pages.map(page => <button
+    const postBtn = pages.map(page => <Button
+        variant='secondary'
         key={page}
         className='page' onClick={() => {setPageNums(page)
         props.setcurrentPage(page)}}
-    >{page}</button>)
+    >{page}</Button>)
 
     return (
         <div className='pagination'>
+            <ButtonGroup>
             {postBtn}
+            </ButtonGroup>
         </div>
     )
 }

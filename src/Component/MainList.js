@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 function MainList(props) {
   const [postNum, setPostNum] = useState(0);
@@ -11,7 +12,6 @@ function MainList(props) {
     <tr key={index}>
       <td>{data.number}</td>
       <td><a href={`/postView/${postNum}`} onClick={()=>{writeNum(data.number)}}>{data.title}</a></td>
-      <td>{data.content}</td>
       <td>{data.id}</td>
       <td>{data.data}</td>
       <td>{data.hit}</td>
@@ -33,13 +33,11 @@ function MainList(props) {
 
   return (
     <div className='mainList'>
-      <p>총 게시글 : {props.boardList.length}</p>
-      <table>
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>게시물 번호</th>
             <th>제목</th>
-            <th>내용</th>
             <th>작성자</th>
             <th>게시 날짜</th>
             <th>조회수</th>
@@ -48,7 +46,7 @@ function MainList(props) {
         <tbody>
           {postList}
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }

@@ -9,19 +9,20 @@ export default function App() {
     const req = axios.post(`/api/login/${data.id}&/${data.password}`)
     .then(
       res => {
-        const id = res.data.loginCom[0].id;
-        const password = res.data.loginCom[0].password;
-        console.log(id)
-        console.log(password)
-        if (data.id == id) {
-          if (data.password == password) {
-            alert("로그인에 성공하였습니다.")
-          } else {
-            alert('비밀번호가 틀립니다.')
-          }
-        } else {
-          alert('아이디가 틀립니다.')
+        console.log(res);
+        console.log(res.data);
+        if(res.data.length == 0){
+          alert("로그인 정보가 일치하지 않습니다.")
+        }else if(res.data.length > 0){
+          alert("로그인에 성공하였습니다.")
+          alert(data.id)
+          sessionStorage.setItem('id',data.id)
+          document.location.href='/';
         }
+        // console.log(id)
+        // console.log(password)
+        console.log(data.id);
+        console.log(data.password);
       }
     )
   };

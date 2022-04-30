@@ -1,21 +1,127 @@
-.main_page{
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.main_page {
   width: 100%;
   margin: 0 auto;
 }
 
-.mainList p{
+.main_page a {
+  color: black;
+  text-decoration: none;
+  outline: none
+}
+
+.mainList p {
   margin: 0 auto;
 }
 
-.mainList table{
+.mainList a{
+  color: rgb(108, 108, 255);
+  transition: .1s;
+}
+
+.mainList a:hover{
+  color: red;
+  transition: .1s;
+}
+
+.mainList table {
   border: 1px solid gray;
 }
-.mainList table th{
+
+.mainList table th {
   width: 100px;
   border: 1px solid gray;
 }
 
-.mainList table td{
+.mainList table td {
   border: 1px solid gray;
 }
 
+.main_list_page {
+  width: 100%;
+  height: 600px;
+}
+
+.nav_bar{
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav_bar a{
+  margin: 30px;
+}
+
+.nav_bar p{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.allPost {
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search_div {
+  width: 356px;
+  display: flex;
+  flex-direction: row;
+}
+
+.member_div {
+  float: right;
+}
+
+.form-control{
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding-left: 20px;
+  height: 40px;
+}
+
+.search_div button{
+  margin-left: 10px;
+  font-size: 24px;
+  height: 40px;
+}
+
+.search_div button a{
+  padding: 10px;
+  text-align: center;
+}
+
+a {
+  margin: 30px;
+}
+
+.pagination {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-group {
+  margin: 0 auto;
+}
+
+.post_button_div {
+  width: 100%;
+  margin: 10px auto;
+  text-align: center;
+}
