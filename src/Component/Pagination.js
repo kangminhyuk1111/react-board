@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { ButtonGroup , Button } from 'react-bootstrap';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+
 
 function Pagination(props) {
     const [postPerPage, setPostPerPage] = useState(10);
@@ -16,7 +18,6 @@ function Pagination(props) {
     }
 
     const postBtn = pages.map(page => <Button
-        variant='secondary'
         key={page}
         className='page' onClick={() => {setPageNums(page)
         props.setcurrentPage(page)}}
@@ -24,7 +25,7 @@ function Pagination(props) {
 
     return (
         <div className='pagination'>
-            <ButtonGroup>
+            <ButtonGroup variant='contained' id="btn-group">
             {postBtn}
             </ButtonGroup>
         </div>

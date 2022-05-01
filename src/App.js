@@ -29,8 +29,10 @@ function App(props) {
   }
 
   const postSearchData = (data) =>{
+    console.log('postSearchData(App)');
     console.log(data);
-    setSearchData(data);
+    //setSearchData(data);
+    setBoardList(data);
   }
 
   // const writeNum = (number) =>{
@@ -49,9 +51,10 @@ function App(props) {
           <Route exact path='/postWrite' element={<Write boardList={boardList}/>}></Route>
           <Route exact path='/postView/:postNum' element={<View boardList={boardList}/>}></Route>
           <Route exact path='/' element={<Main boardList={boardList}
-          postSearchData={postSearchData}/>}></Route>
+          postSearchData={postSearchData}
+          resData={resData}/>}></Route>
           <Route exact path='/Signup' element={<Signup/>}></Route>
-          <Route exact path='/search' element={<Search searchData={searchData}/>}></Route>
+          {/* <Route exact path='/search' element={<Search searchData={searchData}/>}></Route> */}
           <Route exact path='/login' element={<Login/>}></Route>
         </Routes>
       </BrowserRouter>

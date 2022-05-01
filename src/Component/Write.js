@@ -21,7 +21,7 @@ function Write(props) {
         <input type='text' placeholder='제목 입력' name='title' onChange={inputChange}/>
         <textarea type='text' placeholder='글 입력' name='content' onChange={inputChange}/>
         <input type='text' value={sessionStorage.getItem('id')} placeholder='id 입력' name='id' onChange={inputChange}/>
-        <input type='submit' value='저장' onClick={()=>document.location.href='/login'}/>
+        <input type='submit' value='저장' onClick={()=>document.location.href='/'}/>
       </form>
       <a href='/'>목록</a>
     </div>

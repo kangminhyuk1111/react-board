@@ -4,7 +4,9 @@ import Pagination from './Pagination';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { Button , FormControl } from 'react-bootstrap';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Main(props) {
     const [postPerPage, setPostPerPage] = useState(10);
@@ -50,23 +52,43 @@ function Main(props) {
             document.location.href = '/';
         }
     }
+
+    const resetBoard = () => {
+        props.resData();
+    }
+
+
+    // const logIn = () =>{
+    //     if(sessionStorage.getItem('id') != null){
+    //         return logRender = <p>환영합니다 {sessionStorage.getItem('id')}님 !</p>
+    //     }else{
+    //         return logRender =  null;
+    //     }
+    // }
     useEffect(() => {
         console.log(sessionStorage.getItem('id'));
-    })
+        // logIn();
+    }, [])
 
     return (
         <div className='main_page'>
             <div className='main_list_page'>
                 <nav className='nav_bar'>
                     <div class='search_div'>
-                        <FormControl type='text' placeholder='검색어를 입력해주세요' name='searchText' onChange={inputChange} />
-                        <Button variant='secondary' type='submit' onClick={postSearchData}><Link to='/search'>검색</Link></Button>
+                        <TextField id="outlined_basic" label="검색어를 입력해주세요" variant="outlined"
+                            type='text' name='searchText' onChange={inputChange} />
+                        <a href='/search' className='atg' onClick={(e) => e.preventDefault()}>
+                            <Button id='search_btn' variant='contained' type='submit' onClick={postSearchData}>
+                                검색
+                            </Button>
+                        </a>
                     </div>
-                    <p>환영합니다 {sessionStorage.getItem('id')}님 !</p>
                     <div class='member_div'>
-                        <Link to="/Signup">회원가입</Link>
-                        <Link to="/login">로그인</Link>
-                        <a href="/" onClick={() => logOut()}>로그아웃</a>
+                        <Link to="/Signup"><Button>회원가입</Button></Link>
+                        <Link to="/login"><Button>로그인</Button></Link>
+                        <a href="/" onClick={() => logOut()}><Button>로그아웃</Button></a>
+                        <a href='/'><AccountCircleIcon id='user_icon'></AccountCircleIcon></a>
+                        {sessionStorage.getItem('id')}
                     </div>
                 </nav>
                 <MainList boardList={props.boardList}
@@ -75,7 +97,8 @@ function Main(props) {
                     postPerPage={postPerPage}></MainList>
             </div>
             <div class='post_button_div'>
-                <Button class='post_button' variant='secondary' onClick={() => onlyMemberPosting()}>글작성</Button>
+                <Button id='post_button' variant='contained' onClick={() => onlyMemberPosting()}>글쓰기</Button>
+                <Button variant='contained' onClick={resetBoard}>전체보기</Button>
             </div>
             <p className='allPost'>총 게시글 : {props.boardList.length}</p>
             <Pagination boardList={props.boardList}

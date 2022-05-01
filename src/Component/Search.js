@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Table } from 'react-bootstrap';
 
 export default function Search(props) {
   console.log(props)
@@ -17,7 +16,7 @@ export default function Search(props) {
   
   return (
     <div>
-      <Table striped bordered hover variant="dark">
+      <table>
         <thead>
           <tr>
             <th>게시물 번호</th>
@@ -30,7 +29,7 @@ export default function Search(props) {
         <tbody>
           {postList}
         </tbody>
-      </Table>
+      </table>
       <Link to='/'>목록</Link>
     </div>
   )

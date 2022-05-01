@@ -44,6 +44,7 @@ app.post("/api/search/:searchText", (req, res) => {
     db.query(sql, async(err,data)=>{
         if (!err){
             res.send({searchData:data})
+            console.log(data);
         }else{
             console.log(err);
         }

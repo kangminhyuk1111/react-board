@@ -14,6 +14,11 @@
   text-decoration: none;
   outline: none
 }
+.mainList{
+  margin: 0 auto;
+  width: 80%;
+  height: 400px;
+}
 
 .mainList p {
   margin: 0 auto;
@@ -44,25 +49,33 @@
 
 .main_list_page {
   width: 100%;
-  height: 600px;
+  height: 700px;
 }
 
 .nav_bar{
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
   height: 50px;
-  margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
-.nav_bar a{
-  margin: 30px;
+#outlined_basic{
+  width: 400px;
+  height: 80%;
 }
 
-.nav_bar p{
-  margin: 0 auto;
-  text-align: center;
+#user_icon{
+  width: 50px;
+  height: 50px;
+}
+
+#search_btn{
+  width: 100%;
+  height: 100%;
 }
 
 .allPost {
@@ -73,7 +86,7 @@
 }
 
 .search_div {
-  width: 356px;
+  width: 500px;
   display: flex;
   flex-direction: row;
 }
@@ -101,10 +114,6 @@
   text-align: center;
 }
 
-a {
-  margin: 30px;
-}
-
 .pagination {
   width: 500px;
   margin: 0 auto;
@@ -116,7 +125,7 @@ a {
   text-align: center;
 }
 
-.btn-group {
+#btn-group {
   margin: 0 auto;
 }
 
@@ -124,4 +133,8 @@ a {
   width: 100%;
   margin: 10px auto;
   text-align: center;
+}
+
+#post_button{
+  margin-right: 10px;
 }

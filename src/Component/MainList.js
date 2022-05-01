@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function MainList(props) {
   const [postNum, setPostNum] = useState(0);
@@ -9,44 +15,46 @@ function MainList(props) {
     setPostNum(number)
   }
   const postList = props.currentPost.map((data, index) => (
-    <tr key={index}>
-      <td>{data.number}</td>
-      <td><a href={`/postView/${postNum}`} onClick={()=>{writeNum(data.number)}}>{data.title}</a></td>
-      <td>{data.id}</td>
-      <td>{data.data}</td>
-      <td>{data.hit}</td>
-    </tr>
+    <TableRow key={index}>    
+      <TableCell>{data.number}</TableCell>
+      <TableCell><a href={`/postView/${postNum}`} onClick={() => { writeNum(data.number) }}>{data.title}</a></TableCell>
+      <TableCell>{data.id}</TableCell>
+      <TableCell>{data.data}</TableCell>
+      <TableCell>{data.hit}</TableCell>
+    </TableRow>
   )
   )
 
-  const spliceContent = () =>{
-    for(let i=0;i<props.boardList.length;i++){
-      if(props.boardList[i].content.length > 5){
-        props.boardList[i].content = props.boardList[i].content.slice(0,4)+'...';
+  const spliceContent = () => {
+    for (let i = 0; i < props.boardList.length; i++) {
+      if (props.boardList[i].content.length > 5) {
+        props.boardList[i].content = props.boardList[i].content.slice(0, 4) + '...';
       }
     }
   }
 
-  useEffect(()=>{
-   spliceContent() 
-  },[])
+  useEffect(() => {
+    spliceContent()
+  }, [])
 
   return (
     <div className='mainList'>
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>게시물 번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>게시 날짜</th>
-            <th>조회수</th>
-          </tr>
-        </thead>
-        <tbody>
-          {postList}
-        </tbody>
-      </Table>
+      <TableContainer component={Paper} aria-label="simple table">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>게시물 번호</TableCell>
+              <TableCell>제목</TableCell>
+              <TableCell>작성자</TableCell>
+              <TableCell>게시 날짜</TableCell>
+              <TableCell>조회수</TableCell>
+            </TableRow>
+          </TableHead>
+          <tbody>
+            {postList}
+          </tbody>
+        </Table>
+      </TableContainer>
     </div>
   )
 }
