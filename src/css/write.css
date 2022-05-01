@@ -1,0 +1,49 @@
+
+.write form{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.write_title{
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.write_textarea{
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.write_writer_id{
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.write_submit{
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.write a{
+    margin: 0 auto;
+    margin-top: 30px;
+}

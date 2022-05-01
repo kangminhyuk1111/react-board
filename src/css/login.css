@@ -1,0 +1,52 @@
+.h1tg {
+    margin-top: 70px;
+}
+
+#id_input_div {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-left: 58px;
+}
+
+#id_input {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#password_input_div {
+    width: 300px;
+    margin-bottom: 40px;
+    margin-left: 58px;
+    margin-top: 20px;
+}
+
+#password_input {
+    width: 300px;
+    margin: 0 auto;
+}
+
+form {
+    width: 80%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.submit_btn {
+    width: 74%;
+    margin-top: 20px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+#form_signup{
+    margin-top: 20px;
+    text-decoration: none;
+}

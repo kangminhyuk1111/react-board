@@ -75,9 +75,9 @@ function Main(props) {
             <div className='main_list_page'>
                 <nav className='nav_bar'>
                     <div class='search_div'>
-                        <TextField id="outlined_basic" label="검색어를 입력해주세요" variant="outlined"
+                        <TextField id="outlined_basic" label="제목을 입력해주세요" variant="outlined"
                             type='text' name='searchText' onChange={inputChange} />
-                        <a href='/search' className='atg' onClick={(e) => e.preventDefault()}>
+                        <a href='/search' className='search_atg' onClick={(e) => e.preventDefault()}>
                             <Button id='search_btn' variant='contained' type='submit' onClick={postSearchData}>
                                 검색
                             </Button>
