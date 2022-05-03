@@ -33,9 +33,9 @@ body{
   height: 400px;
 }
 
-.mainList p {
+/* .mainList p {
   margin: 0 auto;
-}
+} */
 
 .mainList a{
   color: rgb(108, 108, 255);

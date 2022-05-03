@@ -14,6 +14,7 @@ function Main(props) {
     const [slicePost, setSlicePost] = useState([]);
     const [searchText, setSearchText] = useState('')
     const [searchData, setSearchData] = useState([]);
+    const [hitNum , setHitNum] = useState();
 
     const currentPost = (posts) => {
         const indexOfLast = postPerPage * currentPage;
@@ -33,6 +34,11 @@ function Main(props) {
         const req = await axios.post("/api/search/" + searchText);
         console.log(req.data.searchData);
         props.postSearchData(req.data.searchData);
+    }
+
+    const setHitNumber = async(number) =>{
+        console.log('/api/hitnumber/');
+        const req = await axios.post('/api/hitnumber/')
     }
 
     const onlyMemberPosting = () => {
@@ -94,7 +100,8 @@ function Main(props) {
                 <MainList boardList={props.boardList}
                     currentPost={currentPost(props.boardList)}
                     slicePost={slicePost}
-                    postPerPage={postPerPage}></MainList>
+                    postPerPage={postPerPage}
+                    setHitNumber={setHitNumber}></MainList>
             </div>
             <div class='post_button_div'>
                 <Button id='post_button' variant='contained' onClick={() => onlyMemberPosting()}>글쓰기</Button>

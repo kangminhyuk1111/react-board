@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box';
-import { Link } from 'react-router-dom'
 import '../css/write.css';
 
 function Write(props) {
@@ -20,12 +19,11 @@ function Write(props) {
   return (
     <Box
       sx={{
-        width: 700,
-        height: 700,
-        backgroundColor: '#fff',
-        margin: '0 auto',
-        borderRadius:'10px',
-
+        width : '700px',
+      bgcolor: '#cfe8fc', height: '600px', backgroundColor: '#fff',
+      margin : '0 auto',
+      paddingTop: '10px', textAlign: 'center', marginTop: '70px', borderRadius: '20px',
+      boxShadow: '4px 4px 4px 4px gray'
       }}
     >
     <div className='write'>

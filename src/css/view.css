@@ -1,0 +1,30 @@
+.view{
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+.view p{
+    border: 3px solid gray;
+    border-radius: 20px;
+}
+
+.view_content{
+    width: 100%;
+    height: 300px;
+}
+
+.view_left{
+    width: 30%;
+    text-align: center;
+}
+
+.view_right{
+    width: 70%;
+}
+
+.view_right p{
+    padding-left: 20px;
+}

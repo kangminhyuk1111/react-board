@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+
 function MainList(props) {
   const [postNum, setPostNum] = useState(0);
 
@@ -14,6 +16,7 @@ function MainList(props) {
     console.log(number)
     setPostNum(number)
   }
+
   const postList = props.currentPost.map((data, index) => (
     <TableRow key={index}>    
       <TableCell>{data.number}</TableCell>

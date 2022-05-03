@@ -25,6 +25,19 @@ var requestData = function (req, res, next) {
 
 app.use(requestData)
 
+app.post('/postView/:number',(req,res)=>{
+    console.log(req.params)
+    const number = req.params.number;
+    const sql = `update board set hit = hit+1 where number=${number};`
+    db.query(sql, (err,data)=>{
+        if(!err){
+            console.log("comp!")
+        }else{
+            console.log(err);
+        }
+    })
+})
+
 app.post('/postWrite', (req, res, next) => {
     console.log(req.requestData);
     const title = req.requestData.title;
@@ -61,11 +74,11 @@ app.post('/api/member/:id&/:name&/:password&/:passwordCheck', (req, res, next) =
     const name = req.params.name;
     const password = req.params.password;
     const passwordCheck = req.params.passwordCheck;
-    const sql = `insert into board_member values('${id}','${name}','${passwordCheck}','${password}');`
+    const sql = `insert into board_member values('${id}','${password}','${passwordCheck}','${name}');`
     db.query(sql, (err,data)=>{
         if(!err){
             res.send()
-        }else{
+        }else{  
             console.log(err)
         }
     })
@@ -74,8 +87,10 @@ app.post('/api/member/:id&/:name&/:password&/:passwordCheck', (req, res, next) =
 app.post('/api/login/:id&/:password',(req,res,next) => {
     const id = req.params.id;
     const password = req.params.password;
+    console.log(id,password);
     const sql = `select id,password from board_member where id='${id}' and password='${password}'`;
     db.query(sql, (err,data)=>{
+        console.log(sql);
         res.send(data);
     })
 })
