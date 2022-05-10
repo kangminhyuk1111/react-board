@@ -79,6 +79,7 @@ function Main(props) {
     return (
         <div className='main_page'>
             <div className='main_list_page'>
+                <p className='head_wrapper'>자유게시판</p>
                 <nav className='nav_bar'>
                     <div class='search_div'>
                         <TextField id="outlined_basic" label="제목을 입력해주세요" variant="outlined"
@@ -103,6 +104,7 @@ function Main(props) {
                     postPerPage={postPerPage}
                     setHitNumber={setHitNumber}></MainList>
             </div>
+            <div className='main_footer'>
             <div class='post_button_div'>
                 <Button id='post_button' variant='contained' onClick={() => onlyMemberPosting()}>글쓰기</Button>
                 <Button variant='contained' onClick={resetBoard}>전체보기</Button>
@@ -111,6 +113,7 @@ function Main(props) {
             <Pagination boardList={props.boardList}
                 setcurrentPage={setcurrentPage}
                 currentPost={currentPost}></Pagination>
+            </div>
         </div>
     )
 }

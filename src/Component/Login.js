@@ -21,7 +21,7 @@ export default function App() {
             alert("로그인 정보가 일치하지 않습니다.")
           } else if (res.data.length > 0) {
             alert("로그인에 성공하였습니다.")
-            alert(data.id)
+            alert(`환영합니다 ${data.id}님`)
             sessionStorage.setItem('id', data.id)
             document.location.href = '/';
           }
