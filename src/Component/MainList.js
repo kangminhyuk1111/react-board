@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,11 +18,11 @@ function MainList(props) {
 
   const postList = props.currentPost.map((data, index) => (
     <TableRow key={index}>    
-      <TableCell>{data.number}</TableCell>
-      <TableCell><a href={`/postView/${postNum}`} onClick={() => { writeNum(data.number) }}>{data.title}</a></TableCell>
-      <TableCell>{data.id}</TableCell>
-      <TableCell>{data.data}</TableCell>
-      <TableCell>{data.hit}</TableCell>
+      <TableCell align='right'>{data.number}</TableCell>
+      <TableCell align='right'><a href={`/postView/${postNum}`} onClick={() => { writeNum(data.number) }}>{data.title}</a></TableCell>
+      <TableCell align='right'>{data.id}</TableCell>
+      <TableCell align='right'>{data.data}</TableCell>
+      <TableCell align='right'>{data.hit}</TableCell>
     </TableRow>
   )
   )
@@ -46,16 +45,16 @@ function MainList(props) {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>게시물 번호</TableCell>
-              <TableCell>제목</TableCell>
-              <TableCell>작성자</TableCell>
-              <TableCell>게시 날짜</TableCell>
-              <TableCell>조회수</TableCell>
+              <TableCell align='right'>게시물 번호</TableCell>
+              <TableCell align='right'>제목</TableCell>
+              <TableCell align='right'>작성자</TableCell>
+              <TableCell align='right'>게시 날짜</TableCell>
+              <TableCell align='right'>조회수</TableCell>
             </TableRow>
           </TableHead>
-          <tbody>
+          <TableBody>
             {postList}
-          </tbody>
+          </TableBody>
         </Table>
       </TableContainer>
     </div>
