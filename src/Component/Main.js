@@ -79,13 +79,13 @@ function Main(props) {
     return (
         <div className='main_page'>
             <div className='main_list_page'>
-                <p className='head_wrapper'>자유게시판</p>
+                <p className='head_wrapper'><p>자유게시판🌍</p><p className='text_sm'>방문해주셔서 감사드립니다!!</p></p>
                 <nav className='nav_bar'>
                     <div class='search_div'>
                         <TextField id="outlined_basic" label="제목을 입력해주세요" variant="outlined"
                             type='text' name='searchText' onChange={inputChange} />
                         <a href='/search' className='search_atg' onClick={(e) => e.preventDefault()}>
-                            <Button id='search_btn' variant='contained' type='submit' onClick={postSearchData}>
+                            <Button id='search_btn' variant='outlined' type='submit' onClick={postSearchData}>
                                 검색
                             </Button>
                         </a>
@@ -106,8 +106,8 @@ function Main(props) {
             </div>
             <div className='main_footer'>
             <div class='post_button_div'>
-                <Button id='post_button' variant='contained' onClick={() => onlyMemberPosting()}>글쓰기</Button>
-                <Button variant='contained' onClick={resetBoard}>전체보기</Button>
+                <Button id='post_button' variant='outlined' onClick={() => onlyMemberPosting()}>글쓰기</Button>
+                <Button variant='outlined' onClick={resetBoard}>전체보기</Button>
             </div>
             <p className='allPost'>총 게시글 : {props.boardList.length}</p>
             <Pagination boardList={props.boardList}

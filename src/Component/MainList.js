@@ -17,7 +17,7 @@ function MainList(props) {
   }
 
   const postList = props.currentPost.map((data, index) => (
-    <TableRow key={index}>    
+    <TableRow key={index}>
       <TableCell align='right'>{data.number}</TableCell>
       <TableCell align='right'><a href={`/postView/${postNum}`} onClick={() => { writeNum(data.number) }}>{data.title}</a></TableCell>
       <TableCell align='right'>{data.id}</TableCell>
@@ -41,8 +41,8 @@ function MainList(props) {
 
   return (
     <div className='mainList'>
-      <TableContainer component={Paper} aria-label="simple table">
-        <Table>
+      <TableContainer component={Paper} aria-label="simple table" scope='row'>
+        <Table size='small'>
           <TableHead>
             <TableRow>
               <TableCell align='right'>게시물 번호</TableCell>

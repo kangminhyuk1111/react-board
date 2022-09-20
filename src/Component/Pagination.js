@@ -25,7 +25,7 @@ function Pagination(props) {
 
     return (
         <div className='pagination'>
-            <ButtonGroup variant='contained' id="btn-group">
+            <ButtonGroup variant='' id="btn-group">
             {postBtn}
             </ButtonGroup>
         </div>

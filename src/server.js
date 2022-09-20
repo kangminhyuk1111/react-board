@@ -15,6 +15,7 @@ app.get('/api/BoardData', (req, res) => {
     console.log('/api')
     db.query('select * from board', (err, data) => {
         res.send(data);
+        console.log(data);
     })
 })
 
